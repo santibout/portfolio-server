@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const sendMail = require("./mail");
 const mongoose = require("mongoose");
 
+const PORT = process.env.PORT || 8080;
+
 mongoose.connect("mongodb://localhost/portfolio", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -47,6 +49,6 @@ app.post("/contact", function (req, res) {
   });
 });
 
-app.listen(3201, function () {
+app.listen(PORT, function () {
   console.log("Z.E.R.O - 1 Systems Intialized on port 3201");
 });
