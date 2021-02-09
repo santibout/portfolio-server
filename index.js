@@ -32,11 +32,11 @@ app.post("/contact", function (req, res) {
   const { name, email, message } = req.body;
   //   console.log(name, email, msg);
   const newMessage = new Message({ name, email, message });
-  newMessage.save(function (err) {
-    if (err) {
-      console.log(err);
+  newMessage.save(function (r) {
+    if (r) {
+      console.log("error: Could not save", r);
     } else {
-      console.log("git");
+      console.log("Mail Saved to MongoDB");
     }
   });
   // console.log("message: ", message);
@@ -49,6 +49,6 @@ app.post("/contact", function (req, res) {
   });
 });
 
-app.listen(PORT, function () {
+app.listen(3201, function () {
   console.log("Z.E.R.O - 1 Systems Intialized on port 3201");
 });

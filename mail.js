@@ -5,7 +5,7 @@ const mailGun = require("nodemailer-mailgun-transport");
 const auth = {
   auth: {
     api_key: process.env.MAIL_GUN_API_KEY,
-    domain: "sandboxa5bad545d5fc4172820c7eddfa0ca97c.mailgun.org",
+    domain: process.env.MAIL_GUN_DOMAIN_NAME,
   },
 };
 
@@ -14,18 +14,17 @@ const transporter = nodeMailer.createTransport(mailGun(auth));
 const sendMail = (name, email, msg, cb) => {
   console.log(`from sendMail: name = ${name}, email = ${email}, msg = ${msg}`);
   const mailOptions = {
-    name,
+    sender: name,
     from: email,
-    to: "santibout@yahoo.com",
-    subject: "Port Foliow Contact Form",
-    text: name + " " + msg,
+    subject: msg,
+    text: name + " " + email + " " + msg,
   };
 
-  console.log('mailOptions ', mailOptions)
+  console.log("mailOptions ", mailOptions);
 
   transporter.sendMail(mailOptions, function (err, data) {
     if (err) {
-      console.log("Error occors");
+      console.log("Error trying to send email");
       cb(err, null);
     } else {
       console.log("Message Sent");
