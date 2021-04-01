@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/santibout/portfolio-server#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemailer": "^6.4.17",
-    "nodemailer-mailgun-transport": "^2.0.2"
+    "nodemailer-mailgun-transport": "^2.0.2",
+    "nodemon": "^2.0.7"
   }
 }
