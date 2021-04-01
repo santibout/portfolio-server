@@ -29,6 +29,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/contact", async function (req, res) {
+  console.log("get route hit");
   console.log(req.body);
   const { name, email, message } = req.body;
   // const newMessage = new Message({ name, email, message });
